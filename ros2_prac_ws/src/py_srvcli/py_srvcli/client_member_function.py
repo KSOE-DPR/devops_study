@@ -1,5 +1,5 @@
 import sys
-
+import pytest
 from example_interfaces.srv import AddTwoInts
 from tutorial_interfaces.srv import CustomSrv
 import rclpy
@@ -10,7 +10,6 @@ class MinimalClientAsync(Node):
 
     def __init__(self):
         super().__init__('minimal_client_async')
-        # self.cli = self.create_client(AddTwoInts, 'add_two_ints')
         self.cli = self.create_client(CustomSrv, 'custom_srv')
         while not self.cli.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('service not available, waiting again...')
@@ -18,14 +17,12 @@ class MinimalClientAsync(Node):
 
     def send_request(self):
         self.req.a = int(sys.argv[1])
-        self.req.b = int(sys.argv[2])
-        self.req.c = int(sys.argv[3])
         self.future = self.cli.call_async(self.req)
         rclpy.spin_until_future_complete(self, self.future)
         return self.future.result()
 
-
 def main(args=None):
+
     rclpy.init(args=args)
 
     minimal_client = MinimalClientAsync()

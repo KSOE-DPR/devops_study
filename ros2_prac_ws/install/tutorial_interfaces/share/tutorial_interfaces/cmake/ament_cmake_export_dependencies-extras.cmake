@@ -1,0 +1,1 @@
+/home/ksoe/devops_study/ros2_prac_ws/build/tutorial_interfaces/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake

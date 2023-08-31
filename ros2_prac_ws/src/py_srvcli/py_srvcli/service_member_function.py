@@ -8,18 +8,25 @@ class MinimalService(Node):
 
     def __init__(self):
         super().__init__('minimal_service')
-        # self.srv = self.create_service(AddTwoInts, 'add_two_ints', self.add_two_ints_callback)
         self.srv  = self.create_service(CustomSrv, 'custom_srv',self.CustomSrv_callback)
-    # def add_two_ints_callback(self, request, response):
-    #     response.sum = request.a + request.b
-    #     self.get_logger().info('Incoming request\na: %d b: %d' % (request.a, request.b))
-    #     return response
 
     def CustomSrv_callback(self, request, response):
-        response.sum = request.a + request.b + request.c
+        response.sum = request.a 
         self.get_logger().info('Incoming request\na: %d b: %d' % (request.a, request.b))
 
         return response
+    
+def fib(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
+    
+def test_fib():
+    assert fib(7) == 13
+
 def main(args=None):
     rclpy.init(args=args)
 
