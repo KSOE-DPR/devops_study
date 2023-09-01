@@ -1,1 +1,0 @@
-/home/ksoe/devops_study/ros2_prac_ws/build/tutorial_interfaces/rosidl_typesupport_fastrtps_c/tutorial_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
