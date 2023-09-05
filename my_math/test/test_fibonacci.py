@@ -1,3 +1,5 @@
+from my_math.fibonacci import fib
+
 def test_always_passes():
     assert True
 

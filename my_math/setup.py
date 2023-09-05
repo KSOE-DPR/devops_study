@@ -1,11 +1,12 @@
 from setuptools import find_packages, setup
 
 package_name = 'my_math'
+submodules = "my_math"
 
 setup(
     name=package_name,
     version='0.0.1',
-    packages=find_packages(exclude=['test']),
+    packages=find_packages(exclude=['test']) + [submodules],
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
