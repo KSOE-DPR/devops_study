@@ -34,6 +34,8 @@ RUN apt-get update \
 RUN . /opt/ros/$ROS_DISTRO/setup.sh \
     && colcon build
 
+RUN echo ". /ros_entrypoint.sh" >> ~/.bashrc
+
 RUN sed -i '$isource "/ksoe_ws/install/setup.bash"' /ros_entrypoint.sh
 
 ENTRYPOINT ["/ros_entrypoint.sh"]
