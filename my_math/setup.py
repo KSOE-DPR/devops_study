@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 
 package_name = 'my_math'
-submodules = "my_math/my_math"
+submodules = "my_math"
 
 setup(
     name=package_name,
