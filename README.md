@@ -1,5 +1,19 @@
 # DevOps 실습 
 
+## 준비
+
+### Using Docker
+
+- `devops_study` 경로에서 빌드 및 실행
+    ```bash
+    docker build -t devops:devops -f docker/Dockerfile .
+    docker run -itd --name devops_study devops:devops /bin/bash
+    ```
+- 빌드된 컨테이너 접속
+    ```bash
+    docker exec -it devops_study /bin/bash
+    ```
+
 ## ROS2 Project 관리
 
 1. [X] Github Repository 
