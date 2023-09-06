@@ -21,7 +21,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'fibonacci = my_math.fibonacci:main'
+            'fibonacci = my_math.fibonacci:main',
+            'calculator = my_math.calculator:main',
         ],
     },
 )
