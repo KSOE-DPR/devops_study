@@ -1,4 +1,7 @@
+#!/usr/bin/env python3
 
+import rclpy
+from rclpy.node import Node
 def add_lists(list1, list2):
     """
     Adds two lists of numbers element-wise.
@@ -58,16 +61,41 @@ def get_larger_elements(list1, list2):
 
     return larger_elements, smaller_elements
 
-# Example usage:
-list1 = [1, 4, 7, 2]
-list2 = [3, 2, 8, 6]
+class MyMathNode(Node):
 
-result = add_lists(list1, list2)
-print(result)  # Output: [6, 8, 10, 12]
+    def __init__(self):
+        super().__init__('my_math_node')
+        self.get_logger().info('My Math Node is running.')
 
-result = multiply_lists(list1, list2)
-print(result)  # Output: [5, 12, 21, 32]
+    # Define your math operations and other functionality here
 
-larger, smaller  = get_larger_elements(list1, list2)
-print("Smaller Elements:", smaller)     # Output: [1, 2, 7, 2]
-print("Larger Elements:", larger)       # Output: [3, 4, 8, 6]
+    # Example usage:
+    list1 = [1, 4, 7, 2]
+    list2 = [3, 2, 8, 6]
+
+    result = add_lists(list1, list2)
+    print(result)  # Output: [6, 8, 10, 12]
+
+    result = multiply_lists(list1, list2)
+    print(result)  # Output: [5, 12, 21, 32]
+
+    larger, smaller  = get_larger_elements(list1, list2)
+    print("Smaller Elements:", smaller)     # Output: [1, 2, 7, 2]
+    print("Larger Elements:", larger)       # Output: [3, 4, 8, 6]
+
+
+def main(args=None):
+    rclpy.init(args=args)
+
+    my_math_node = MyMathNode()
+    try:
+        rclpy.spin(my_math_node)
+    except KeyboardInterrupt:
+        my_math_node.get_logger().info('My Math Node stopped cleanly.')
+    finally:
+        my_math_node.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()

@@ -11,6 +11,10 @@
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
 
+  <buildtool_depend>ament_cmake</buildtool_depend>
+<test_depend>ament_cmake_cppcheck</test_depend>
+<test_depend>ament_cmake_uncrustify</test_depend>
+
   <export>
     <build_type>ament_python</build_type>
   </export>
