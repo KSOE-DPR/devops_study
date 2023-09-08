@@ -1,10 +1,11 @@
 def circumference(n):
-    return 2 * 3.14 * n
+    if n >= 0:
+        return 2 * 3.14 * n
+    else:
+        print('양수를 입력하세요!')
 
 def area_of_circle(n):
-    return n**2 * 3.14
-
-def test_main(): # 함수명에 test_를 붙여줘야 테스트할 대상으로 인식 
-    print('Running circle')
-    print(circumference(2), area_of_circle(2))
-    assert circumference(0) == 4, '바보래요~'
+    if n >= 0:
+        return n**2 * 3.14
+    else:
+        print('양수를 입력하세요!')
