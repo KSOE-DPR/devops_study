@@ -10,9 +10,3 @@ def fib(n):
         return n
     else:
         return fib(n-1) + fib(n-2)
-
-def main():
-    print('Running Fibonacci')
-
-if __name__ == '__main__':
-    main()
