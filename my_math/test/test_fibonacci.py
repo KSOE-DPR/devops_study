@@ -10,4 +10,6 @@ def test_fibonacci_general():
     assert fib(7) == 13
     assert fib(8) == 21
     assert fib(1) == 1
-    assert fib(-1) == 1
+    assert fib(-1) == -1
+    assert fib(0) == 0
+    assert fib(2) == 1
